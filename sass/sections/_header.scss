@@ -1,0 +1,43 @@
+.header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    &__block{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        margin: 0 0 15px;
+        padding: 0;
+
+
+        &_link{
+            color: $black;
+            margin-left: 15px;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+    }
+
+    &__login{
+        margin: 0 0 10px;
+        background-color: $blue;
+        padding: 5px 15px;
+        border-radius: 5px;
+
+        &_link{
+            color: white;
+
+            &:first-child::after{
+                content: "/";
+                margin-left: 10px;
+                margin-right: 5px;
+            }
+        }
+    }
+}

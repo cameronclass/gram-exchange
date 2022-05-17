@@ -35,22 +35,111 @@
 </head>
 
 <body>
-  <!-- Preloader -->
-  <div id="page-preloader">
-    <div class="cssload-wraper">
-      <div class="cssload-dots"></div>
-    </div>
-  </div>
   <!-- Header -->
-  <header>
+  <header class="header">
+    <div class="container">
+      <div class="header__block">
+        <a class="header__logo">
+          <img src="./img/logo.svg" alt="Логотип">
+        </a>
+        <ul class="header__menu">
+          <li><a class="header__menu_link" href="#">О сервисе </a></li>
+          <li><a class="header__menu_link" href="#">Каталог каналов </a></li>
+          <li><a class="header__menu_link" href="#">FAQ </a></li>
+          <li><a class="header__menu_link" href="#">Партнерская программа </a></li>
+          <li><a class="header__menu_link" href="#">Контакты</a></li>
+        </ul>
+        <div class="header__login">
+          <a class="header__login_link" href="#">Вход в кабинет</a>
+          <a class="header__login_link" href="#">Регистрация</a>
+        </div>
+      </div>
+    </div>
   </header>
   <!-- Main -->
-  <main>
-    <section>
+  <main class="main">
+    <!-- О нас -->
+    <section class="about">
+      <div class="container about__block">
+        <div class="about__img">
+          <img src="./img/1.png" alt="">
+        </div>
+        <div class="about__content">
+          <h1 class="about__title">Gram Exchange</h1>
+          <h3 class="about__subtitle">Платформа рекламы в TELEGRAM</h3>
+          <p class="about__text">
+            Продвижение своего бизнеса посредством рекламы через сервис Gram Exchange – это довольно популярная и эффективная методика. Наша биржа готова предложить вам услуги по размещению рекламы в популярных Telegram-каналах, которые вы выбираете сами. Таким образом, вы сможете привлечь новых клиентов.
+          </p>
+          <div class="about__icons">
+            <div class="icon">
+              <div class="icon__img">
+                <img src="./img/icons/1.svg" alt="">
+              </div>
+              <div class="icon__text">Удобный поиск</div>
+            </div>
+            <div class="icon">
+              <div class="icon__img">
+                <img src="./img/icons/2.svg" alt="">
+              </div>
+              <div class="icon__text">Автоматическое
+                размещение</div>
+            </div>
+            <div class="icon">
+              <div class="icon__img">
+                <img src="./img/icons/3.svg" alt="">
+              </div>
+              <div class="icon__text">Экономичность</div>
+            </div>
+            <div class="icon">
+              <div class="icon__img">
+                <img src="./img/icons/4.svg" alt="">
+              </div>
+              <div class="icon__text">Безопасность</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Легкий запуск рекламы -->
+    <section class="start">
+      <div class="container start__block">
+        <h2 class="start__title">Легкий запуск рекламы</h2>
+        <div class="start__steps steps">
+          <div class="steps__item">
+            <div class="steps__img">
+              <img src="./img/icons/step1.svg" alt="">
+            </div>
+            <div class="steps__block">
+              <div class="steps__title">Выбор площадки</div>
+              <div class="steps__text">Подбираете площадку для рекламы подходящую именно для вас</div>
+            </div>
+          </div>
+          <div class="steps__item">
+            <div class="steps__img">
+              <img src="./img/icons/step2.svg" alt="">
+            </div>
+            <div class="steps__block">
+              <div class="steps__title">Подача запроса</div>
+              <div class="steps__text">Составляете рекламное объявление и подаете его на модерацию. После проверки ваша реклама будет запущена.</div>
+            </div>
+          </div>
+          <div class="steps__item">
+            <div class="steps__img">
+              <img src="./img/icons/step3.svg" alt="">
+            </div>
+            <div class="steps__block">
+              <div class="steps__title">Гарантия</div>
+              <div class="steps__text">Сервис выступает гарантом сделки. Ваша реклама будет показана на выбранном канале ровно столько времени за сколько оплатили.</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <!-- Footer -->
-  <footer></footer>
+  <footer>
+
+  </footer>
   <!-- Scripts -->
   <script src="js/libs.min.js"></script>
   <script src="js/main.js"></script>

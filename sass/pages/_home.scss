@@ -1,7 +1,16 @@
 .about {
     margin-top: 70px;
+
+    @include mobile{
+        margin-top: 90px;
+    }
+
     &__block {
         display: flex;
+
+        @include tablet {
+            flex-direction: column-reverse;
+        }
     }
 
     &__img {
@@ -10,16 +19,55 @@
         img {
             width: 120%;
         }
+
+        @include tablet {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            img {
+                width: 70%;
+                margin-left: 30px;
+            }
+        }
+
+        @include mobile{
+            img{
+                width: 100%;
+            }
+        }
     }
 
     &__content {
         width: 55%;
+
+        @include tablet {
+            width: 100%;
+        }
     }
 
     &__title {
         font-size: 70px;
         font-weight: 600;
         margin: 20px 0;
+
+        @include laptop {
+            font-size: 65px;
+        }
+
+        @include netbook {
+            font-size: 55px;
+        }
+
+        @include tablet {
+            font-size: 45px;
+        }
+
+        @include mobile {
+            font-size: 35px;
+            margin-bottom: 0;
+        }
     }
 
     &__text {
@@ -28,12 +76,34 @@
         font-size: 20px;
         line-height: 1.4;
         text-align: justify;
+
+
+        @include tablet {
+            margin-top: 20px;
+            font-size: 16px;
+        }
     }
 
     &__subtitle {
         font-size: 36px;
         font-weight: 600;
         margin: 0;
+
+        @include laptop {
+            font-size: 30px;
+        }
+
+        @include netbook {
+            font-size: 28px;
+        }
+
+        @include tablet {
+            font-size: 25px;
+        }
+
+        @include mobile {
+            font-size: 22px;
+        }
     }
 
     &__icons {
@@ -42,8 +112,17 @@
         align-items: flex-start;
         margin-top: 20px;
 
+        @include netbook {
+            flex-wrap: wrap;
+        }
+
         .icon {
             width: 24%;
+
+            @include netbook {
+                width: 45%;
+                margin-bottom: 30px;
+            }
         }
     }
 }
@@ -53,7 +132,14 @@
     margin-top: 160px;
     margin-bottom: 250px;
     background-color: white;
+
+    @include tablet{
+        margin-bottom: 70px;
+    }
+
     &__block {
+        position: relative;
+        z-index: 2;
     }
 
     &__title {
@@ -62,20 +148,42 @@
         font-size: 40px;
         text-align: center;
         margin-bottom: 60px;
+
+        @include netbook {
+            font-size: 35px;
+        }
+
+        @include mobile {
+            font-size: 30px;
+        }
     }
 
     &__steps {
         display: flex;
         justify-content: space-between;
+
+        @include netbook {
+            flex-wrap: wrap;
+        }
+
         .steps {
 
             &__item {
-                width: 30%;
+                width: 31%;
+                margin-bottom: 30px;
+
+                @include netbook {
+                    width: 47%;
+                }
+
+                @include mobile {
+                    width: 100%;
+                }
             }
         }
     }
 
-    &::before{
+    &::before {
         content: "";
         background-image: url(../../img/icons/top.svg);
         position: absolute;
@@ -84,12 +192,319 @@
         height: 150px;
     }
 
-    &::after{
+    &::after {
         content: "";
         background-image: url(../../img/icons/bottom.svg);
         position: absolute;
         bottom: -196px;
         width: 100%;
         height: 197px;
+
+        @include tablet{
+            bottom: -20px;
+        }
+    }
+}
+
+.advantages {
+    margin-bottom: 60px;
+
+    &__block {
+        display: flex;
+        justify-content: space-between;
+
+        @include netbook {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        width: 31%;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 15px;
+        padding: 50px 30px 30px;
+        position: relative;
+        margin-bottom: 30px;
+
+        @include netbook {
+            width: 47%;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+
+        &_img {
+            img {
+                width: auto;
+                height: 140px;
+
+                @include netbook {
+                    height: 100px;
+                }
+            }
+        }
+
+        &_title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 0;
+
+            @include netbook {
+                font-size: 18px;
+            }
+        }
+
+        &_text {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        &:nth-child(1)::after {
+            content: "";
+            background-image: url(../../img/bg-advantages-1.png);
+            width: 40%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        &:nth-child(2)::after {
+            content: "";
+            background-image: url(../../img/bg-advantages-2.png);
+            width: 50%;
+            height: 75%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+
+            @include mobile{
+                width: 44%;
+            }
+        }
+
+        &:nth-child(3)::after {
+            content: "";
+            background-image: url(../../img/bg-advantages-3.png);
+            width: 70%;
+            height: 60%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+    }
+
+
+}
+
+.referal {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+    position: relative;
+
+    &__block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        position: relative;
+        z-index: 2;
+
+        @include netbook {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__content {
+        width: 55%;
+
+        @include netbook {
+            width: 100%;
+        }
+    }
+
+    &__img {
+        width: 35%;
+
+        @include netbook {
+            width: 100%;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 70%;
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 32px;
+        margin-bottom: 10px;
+
+        span {
+            font-weight: 700;
+            color: $cyan;
+        }
+    }
+
+    &__text {
+        font-weight: 300;
+        font-size: 20px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+
+        b {
+            font-weight: 600;
+        }
+    }
+
+    &__btn {
+        background-color: $cyan;
+        padding: 10px 40px;
+        border-radius: 50px;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 700;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        display: inline-block;
+        transition: 200ms ease;
+
+        img {
+            width: 15px;
+            margin-left: 10px;
+        }
+
+        &:hover {
+            box-shadow: none;
+            background-color: darken($color: $cyan, $amount: 5);
+        }
+    }
+
+    &::after {
+        content: "";
+        background-image: url(../../img/icons/bottom2.svg);
+        position: absolute;
+        bottom: -120px;
+        width: 100%;
+        height: 198px;
+    }
+}
+
+.balance {
+    margin-top: 200px;
+    position: relative;
+    padding-bottom: 100px;
+
+    @include tablet{
+        margin-top: 150px;
+        padding-bottom: 50px;
+    }
+
+    &__block {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        text-align: center;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 34px;
+        margin-bottom: 50px;
+
+        @include netbook {
+            font-size: 30px;
+        }
+
+        @include mobile {
+            font-size: 25px;
+        }
+    }
+
+    &__item {
+        width: 19%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
+        @include netbook {
+            width: 26%;
+        }
+
+        @include mobile{
+            width: 47%;
+        }
+
+        &_icon {
+            width: 90px;
+
+            @include netbook {
+                display: none;
+            }
+
+            &--left {
+                width: 230px;
+                position: absolute;
+                top: -170%;
+                left: 30%;
+            }
+
+            &--right {
+                width: 230px;
+                transform: rotateY(180deg);
+                position: absolute;
+                top: -170%;
+                right: 30%;
+            }
+        }
+
+        &_img {
+            width: 80%;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &::before {
+        content: "";
+        background-image: url(../../img/card-left.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 169px;
+        height: 247px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    &::after {
+        content: "";
+        background-image: url(../../img/card-right.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 130px;
+        height: 400px;
+        position: absolute;
+        right: 0;
+        bottom: 20%;
     }
 }

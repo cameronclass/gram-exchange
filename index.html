@@ -42,15 +42,30 @@
         <a class="header__logo">
           <img src="./img/logo.svg" alt="Логотип">
         </a>
+        <button class="header__hamburger hamburger hamburger-js hamburger--3dy">
+          <div class="hamburger-box">
+            <div class="hamburger-inner"></div>
+          </div>
+        </button>
         <ul class="header__menu">
+          <li>
+            <button class="header__hamburger_mobile is-active hamburger hamburger-js-mobile hamburger--3dy">
+              <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+              </div>
+            </button>
+          </li>
           <li><a class="header__menu_link" href="#">О сервисе </a></li>
           <li><a class="header__menu_link" href="#">Каталог каналов </a></li>
           <li><a class="header__menu_link" href="#">FAQ </a></li>
           <li><a class="header__menu_link" href="#">Партнерская программа </a></li>
           <li><a class="header__menu_link" href="#">Контакты</a></li>
+          <li><a class="header__menu_link header__menu_link--mobile header__menu_link--margin" href="#">Вход в кабинет</a></li>
+          <li><a class="header__menu_link header__menu_link--mobile" href="#">Регистрация</a></li>
         </ul>
         <div class="header__login">
           <a class="header__login_link" href="#">Вход в кабинет</a>
+          <span>/</span>
           <a class="header__login_link" href="#">Регистрация</a>
         </div>
       </div>
@@ -135,10 +150,127 @@
         </div>
       </div>
     </section>
+    <!-- Наши преимущества -->
+    <section class="advantages">
+      <div class="container">
+        <div class="advantages__block">
+          <div class="advantages__item">
+            <div class="advantages__item_img">
+              <img src="./img/icons/advantages-1.png" alt="">
+            </div>
+            <h3 class="advantages__item_title">
+              Знакомьте клиентов с продуктом
+            </h3>
+            <p class="advantages__item_text">
+              Познакомьте вашу целевую аудиторию с вашим новым продуктом или услугой
+            </p>
+          </div>
+          <div class="advantages__item">
+            <div class="advantages__item_img">
+              <img src="./img/icons/advantages-2.png" alt="">
+            </div>
+            <h3 class="advantages__item_title">
+              Повышайте узнаваемость
+              бренда
+            </h3>
+            <p class="advantages__item_text">
+              Усиливайте упоминание и узнаваемость вашего бренда
+            </p>
+          </div>
+          <div class="advantages__item">
+            <div class="advantages__item_img">
+              <img src="./img/icons/advantages-3.png" alt="">
+            </div>
+            <h3 class="advantages__item_title">
+              Привлекайте трафик на свои сайты
+            </h3>
+            <p class="advantages__item_text">
+              Монетизируйте трафик из TELEGRAM в продажи и подписчки
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- О реферальной программе -->
+    <section class="referal">
+      <div class="container">
+        <div class="referal__block">
+          <div class="referal__img">
+            <img src="./img/referal-image.png" alt="">
+          </div>
+          <div class="referal__content">
+            <h2 class="referal__title">
+              Приглашайте в <span>Gram Exchange</span> и получайте за это деньги
+            </h2>
+            <p class="referal__text">
+              Привлекайте новых пользователей в <b>Gram Exchange</b>
+              и получайте за это вознагрождение
+            </p>
+            <a href="#" class="referal__btn">
+              <span>Подробнее</span>
+              <span><img src="./img/icons/arrow.svg" alt=""></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- О пополнении -->
+    <section class="balance">
+      <div class="container">
+        <h2 class="balance__title">Легко пополняйте и выводите баланс</h2>
+        <div class="balance__block">
+          <div class="balance__item">
+            <div class="balance__item_icon balance__item_icon--left">
+              <img src="./img/icons/card-left.png" alt="">
+            </div>
+            <div class="balance__item_img">
+              <img src="./img/card-1.png" alt="">
+            </div>
+          </div>
+          <div class="balance__item">
+            <div class="balance__item_icon">
+              <img src="./img/icons/card-top.png" alt="">
+            </div>
+            <div class="balance__item_img">
+              <img src="./img/card-2.png" alt="">
+            </div>
+          </div>
+          <div class="balance__item">
+            <div class="balance__item_icon">
+              <img src="./img/icons/card-top.png" alt="">
+            </div>
+            <div class="balance__item_img">
+              <img src="./img/card-3.png" alt="">
+            </div>
+          </div>
+          <div class="balance__item">
+            <div class="balance__item_icon">
+              <img src="./img/icons/card-top.png" alt="">
+            </div>
+            <div class="balance__item_img">
+              <img src="./img/card-4.png" alt="">
+            </div>
+          </div>
+          <div class="balance__item">
+            <div class="balance__item_icon balance__item_icon--right">
+              <img src="./img/icons/card-left.png" alt="">
+            </div>
+            <div class="balance__item_img">
+              <img src="./img/card-5.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <!-- Footer -->
-  <footer>
-
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__block">
+        <div class="footer__text">Gram Exchange — Биржа рекламы в Telegram</div>
+        <a href="#" class="footer__policy">Пользовательское соглашение</a>
+      </div>
+    </div>
   </footer>
   <!-- Scripts -->
   <script src="js/libs.min.js"></script>

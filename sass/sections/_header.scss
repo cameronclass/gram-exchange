@@ -1,13 +1,58 @@
-.header{
+.header {
     padding-top: 20px;
     padding-bottom: 20px;
-    &__block{
+
+    @include mobile {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 4;
+        background: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &__block {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+
+        @include mobile {
+            align-items: center;
+        }
     }
 
-    &__menu{
+    &__logo {
+        @include tablet{
+            max-width: 160px;
+        }
+        @include mobile {
+            max-width: 140px;
+        }
+    }
+
+    &__hamburger {
+        display: none;
+
+        @include laptop {
+            display: flex;
+            margin-left: auto;
+            margin-right: 20px;
+        }
+
+        @include mobile {
+            margin-right: 0;
+            padding: 0;
+        }
+
+        &_mobile {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+
+    &__menu {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -15,29 +60,106 @@
         margin: 0 0 15px;
         padding: 0;
 
+        @include laptop {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: initial;
+            position: fixed;
+            z-index: 5;
+            width: 100%;
+            max-width: 320px;
+            height: 100vh;
+            top: 0;
+            left: -100%;
+            background-color: $blue;
+            transition: 200ms;
+            padding-top: 60px;
 
-        &_link{
+            li {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        &_active {
+            left: 0;
+        }
+
+
+        &_link {
             color: $black;
             margin-left: 15px;
             margin-right: 15px;
             font-size: 16px;
+
+            &:hover {
+                color: $blue;
+                border-bottom: 1px solid;
+            }
+
+            @include laptop {
+                color: white;
+                margin-top: 15px;
+                display: inline-block;
+                padding: 8px 15px;
+                background-color: lighten($color: $blue, $amount: 15);
+                width: 100%;
+                text-align: center;
+                border-radius: 5px;
+
+
+                &:hover {
+                    border: none;
+                    color: white;
+                    background-color: lighten($color: $blue, $amount: 5);
+                }
+            }
+
+            &--mobile {
+                display: none;
+
+                @include mobile {
+                    display: block;
+                }
+            }
+
+            &--margin {
+                margin-top: 40px;
+            }
         }
     }
 
-    &__login{
+    &__login {
         margin: 0 0 10px;
         background-color: $blue;
         padding: 5px 15px;
         border-radius: 5px;
+        position: relative;
 
-        &_link{
+        @include mobile {
+            display: none;
+        }
+
+        &_link {
             color: white;
 
-            &:first-child::after{
-                content: "/";
-                margin-left: 10px;
-                margin-right: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+
+            &:hover {
+                border-bottom: 1px solid;
             }
         }
+
+        span {
+            color: white;
+        }
+    }
+
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after{
+        background-color: white;
     }
 }

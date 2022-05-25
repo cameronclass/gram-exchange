@@ -1,12 +1,17 @@
+.section {
+    line-height: 1.6;
+}
+
 .about {
     margin-top: 70px;
 
-    @include mobile{
-        margin-top: 90px;
+    @include tablet {
+        margin-top: 20px;
     }
 
     &__block {
         display: flex;
+        justify-content: space-between;
 
         @include tablet {
             flex-direction: column-reverse;
@@ -32,15 +37,16 @@
             }
         }
 
-        @include mobile{
-            img{
+        @include mobile {
+            img {
                 width: 100%;
             }
         }
     }
 
     &__content {
-        width: 55%;
+        width: 50%;
+        text-align: center;
 
         @include tablet {
             width: 100%;
@@ -50,23 +56,28 @@
     &__title {
         font-size: 70px;
         font-weight: 600;
-        margin: 20px 0;
+        margin: 5px 0 5px;
+        line-height: 1;
 
         @include laptop {
             font-size: 65px;
         }
 
         @include netbook {
-            font-size: 55px;
+            font-size: 60px;
         }
 
         @include tablet {
-            font-size: 45px;
+            font-size: 50px;
         }
 
         @include mobile {
-            font-size: 35px;
+            font-size: 40px;
             margin-bottom: 0;
+        }
+
+        &_content {
+            border-left: 2px solid $black;
         }
     }
 
@@ -85,20 +96,20 @@
     }
 
     &__subtitle {
-        font-size: 36px;
+        font-size: 30px;
         font-weight: 600;
         margin: 0;
 
         @include laptop {
-            font-size: 30px;
-        }
-
-        @include netbook {
             font-size: 28px;
         }
 
+        @include netbook {
+            font-size: 26px;
+        }
+
         @include tablet {
-            font-size: 25px;
+            font-size: 24px;
         }
 
         @include mobile {
@@ -133,7 +144,7 @@
     margin-bottom: 250px;
     background-color: white;
 
-    @include tablet{
+    @include tablet {
         margin-bottom: 70px;
     }
 
@@ -200,7 +211,7 @@
         width: 100%;
         height: 197px;
 
-        @include tablet{
+        @include tablet {
             bottom: -20px;
         }
     }
@@ -250,7 +261,8 @@
         &_title {
             font-size: 20px;
             font-weight: 500;
-            margin-bottom: 0;
+            margin-bottom: 15px;
+            margin-top: 15px;
 
             @include netbook {
                 font-size: 18px;
@@ -285,7 +297,7 @@
             right: 0;
             bottom: 0;
 
-            @include mobile{
+            @include mobile {
                 width: 44%;
             }
         }
@@ -389,6 +401,7 @@
         }
 
         &:hover {
+            color: white;
             box-shadow: none;
             background-color: darken($color: $cyan, $amount: 5);
         }
@@ -409,7 +422,7 @@
     position: relative;
     padding-bottom: 100px;
 
-    @include tablet{
+    @include tablet {
         margin-top: 150px;
         padding-bottom: 50px;
     }
@@ -448,7 +461,7 @@
             width: 26%;
         }
 
-        @include mobile{
+        @include mobile {
             width: 47%;
         }
 

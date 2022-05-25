@@ -1,0 +1,1099 @@
+<?php
+
+$_tpl['main'] = <<<TPL
+<!doctype html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="robots" content="index, follow">
+        <!-- MetaTags -->
+        <meta name="description" content="Продвижение своего бизнеса посредством рекламы через сервис Gram Exchange – это довольно популярная и эффективная методика. Наша биржа готова предложить вам услуги по размещению рекламы в популярных Telegram-каналах, которые вы выбираете сами. Таким образом, вы сможете привлечь новых клиентов.">
+        <meta name="keywords" content="Gram Exchange, Платформа рекламы в TELEGRAM">
+        <!-- OG tags -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://gram.exchange">
+        <meta property="og:title" content="Gram Exchange">
+        <meta property="og:image" content="./img/logo.svg">
+        <meta property="og:description" content="Gram Exchange Платформа рекламы в TELEGRAM">
+        <meta property="og:site_name" content="Gram Exchange">
+        <meta property="og:locale" content="ru_RU">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Gram Exchange">
+        <meta name="twitter:description" content="Gram Exchange Платформа рекламы в TELEGRAM">
+        <meta name="twitter:image" content="./img/logo.svg">
+        <!-- Favivon -->
+        <link rel="shortcut icon" href="./img/logo.svg" type="image/x-icon">
+        <link rel="icon" type="image/png" href="./img/logo.svg">
+        <!-- Apple Touch Icon -->
+        <link rel="apple-touch-icon" href="./img/logo.svg">
+
+        <title>{{meta_title}}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/css/bootstrap.min.css" integrity="sha512-N415hCJJdJx+1UBfULt+i+ihvOn42V/kOjOpp1UTh4CZ70Hx5bDlKryWaqEKfY/8EYOu/C2MuyaluJryK1Lb5Q==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        {{navbar}}
+
+            {{notify}}
+            {{content}}
+
+
+        <footer class="footer fixed-bottom">
+          <div class="container">
+            <div class="footer__block">
+              <div class="footer__text">{{lang:project_name}} &mdash; {{lang:project_description}}</div>
+              <a href="#" class="footer__policy">Пользовательское соглашение</a>
+            </div>
+          </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js" integrity="sha512-DSdiuNZtfUhehZHXtit9Sa/83i06YSnvT8Js8drwdkVCDMk3JwpIxdhf2oRUByUDB3wguN2iAzoTNfxFAuqGyA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ru.min.js" integrity="sha512-tPXUMumrKam4J6sFLWF/06wvl+Qyn27gMfmynldU730ZwqYkhT2dFUmttn2PuVoVRgzvzDicZ/KgOhWD+KAYQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript">
+            const hamburger = document.querySelectorAll(".hamburger");
+            const headerMenu = document.querySelector(".header__menu");
+            hamburger.onclick = function () {
+                hamburger.classList.toggle("is-active");
+            };
+
+            hamburger.forEach((item) => {
+                item.onclick = function () {
+                    headerMenu.classList.toggle("header__menu_active");
+                };
+            });
+
+
+            $(function () {
+                $('.js-date').datepicker({
+                    weekStart: 1,
+                    format: "dd.mm.yyyy",
+                    language: "ru"
+                })
+                $(document).on('click', '.js-filter', function () {
+                    $('.js-filter-block').toggle()
+                })
+                $(document).on('click', '.js-confirm', function () {
+                    if (confirm('{{lang:confirm_message_are_you_sure}}')) {
+                        location.href = $(this).attr('href')
+                    }
+                    return false
+                })
+            })
+
+        </script>
+    </body>
+</html>
+TPL;
+
+$_tpl['auth_main'] = <<<TPL
+<!doctype html>
+<html>
+    <head>
+        <title>{{meta_title}}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/css/bootstrap.min.css" integrity="sha512-N415hCJJdJx+1UBfULt+i+ihvOn42V/kOjOpp1UTh4CZ70Hx5bDlKryWaqEKfY/8EYOu/C2MuyaluJryK1Lb5Q==" crossorigin="anonymous" />
+    </head>
+    <body class="bg-light">
+        <div class="container-fluid min-vh-100">
+            <div class="row min-vh-100">
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <div class="w-75 my-4">
+                        <div class="mb-4">
+                            <h2>{{title}}</h2>
+                        </div>
+                        <div>
+                            {{notify}}
+                            {{content}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-center bg-success">
+                    <div class="fs-1 fw-bold text-white">{{lang:project_name}}</div>
+                    <div class="text-white">{{lang:project_description}}</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js" integrity="sha512-DSdiuNZtfUhehZHXtit9Sa/83i06YSnvT8Js8drwdkVCDMk3JwpIxdhf2oRUByUDB3wguN2iAzoTNfxFAuqGyA==" crossorigin="anonymous"></script>
+    </body>
+</html>
+TPL;
+
+$_tpl['page_main'] = <<<TPL
+<div class="container my-5 pb-5">
+{{breadcrumbs:null}}
+<div class="border-bottom pb-4 mb-4">
+    <div class="row">
+        <div class="col-md">
+            <h2>{{title}}</h2>
+        </div>
+        {{buttons:null}}
+    </div>
+</div>
+{{filter:null}}
+{{form:null}}
+<div class="card shadow-sm">
+    <div class="card-body">
+        {{content}}
+    </div>
+</div>
+</div>
+TPL;
+
+$_tpl['page_main_button'] = <<<TPL
+    <div class="col-md-auto">
+        {{button}}
+    </div>
+TPL;
+
+$_tpl['page_main_form'] = <<<TPL
+<div class="card mb-4"">
+    <div class="card-body">
+        {{form}}
+    </div>
+</div>
+TPL;
+
+$_tpl['filter_button'] = <<< TPL
+    <button class="btn btn-outline-secondary js-filter">{{lang:action_filter}}</button>
+TPL;
+
+$_tpl['filter_main'] = <<<TPL
+<div class="card mb-4 js-filter-block" style="display:none;">
+    <div class="card-body">
+        {{form}}
+    </div>
+</div>
+TPL;
+
+$_tpl['ui_alert'] = <<<TPL
+<div class="alert alert-{{variant}}">
+    {{message}}
+</div>
+TPL;
+
+$_tpl['ui_alert_dismissible'] = <<<TPL
+<div class="alert alert-{{variant}} alert-dismissible fade show">
+    {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+TPL;
+
+$_tpl['ui_badge'] = <<<TPL
+<span class="badge bg-{{variant}} {{text_color}}">{{text}}</span>
+TPL;
+
+$_tpl['ui_link'] = <<<TPL
+<a href="{{link}}" class="{{class}}">{{title}}</a>
+TPL;
+
+$_tpl['ui_image'] = <<<TPL
+<img src="{{path}}" title="{{title}}" class="img-response {{class}}">
+TPL;
+
+
+$_tpl['ui_navbar_main'] = <<<TPL
+<header class="header">
+        <div class="container">
+            <div class="header__block">
+                <a class="header__logo">
+                    <img src="./img/logo.svg" alt="Логотип">
+                </a>
+                <button class="header__hamburger hamburger hamburger-js hamburger--3dy">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </button>
+                <ul class="header__menu">
+                    <li>
+                        <button class="header__hamburger_mobile is-active hamburger hamburger-js-mobile hamburger--3dy">
+                            <div class="hamburger-box">
+                                <div class="hamburger-inner"></div>
+                            </div>
+                        </button>
+                    </li>
+                    <li><a class="header__menu_link" href="/page/about">О сервисе </a></li>
+                    <li><a class="header__menu_link" href="#">Каталог каналов </a></li>
+                    <li><a class="header__menu_link" href="#">FAQ </a></li>
+                    <li><a class="header__menu_link" href="#">Партнерская программа </a></li>
+                    <li><a class="header__menu_link" href="#">Контакты</a></li>
+                    <li><a class="header__menu_link header__menu_link--mobile header__menu_link--margin" href="#">Вход в кабинет</a></li>
+                    <li><a class="header__menu_link header__menu_link--mobile" href="#">Регистрация</a></li>
+                </ul>
+                <div class="header__login">
+                    <!-- <a class="header__login_link" href="#">Вход в кабинет</a>
+                    <span>/</span>
+                    <a class="header__login_link" href="#">Регистрация</a> -->
+
+                    {{nav-right}}
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+	<div class="container">
+		<a class="navbar-brand" href="{{data_link_home}}">{{lang:project_name}}</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#js-navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="js-navbar">
+	    	{{nav-left}}
+	    	{{nav-right}}
+	    </div>
+	</div>
+</nav> -->
+TPL;
+
+$_tpl['ui_navbar_nav'] = <<<TPL
+<ul class="navbar-nav {{me-auto}} mb-2 mb-lg-0">
+	{{items_list}}
+</ul>
+TPL;
+
+$_tpl['ui_navbar_item_link'] = <<<TPL
+
+  <a class="header__login_link" href="{{link}}">{{title}}</a>
+	<!-- <a class="nav-link {{active}} {{confirm}}" aria-current="page" href="{{link}}">{{title}}</a> -->
+
+TPL;
+
+$_tpl['ui_navbar_item_dropdown'] = <<<TPL
+<li class="nav-item dropdown">
+	<a class="nav-link {{active}} dropdown-toggle" href="#" id="js-navbar-{{id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		{{title}}
+	</a>
+	<ul class="dropdown-menu {{dropdown-menu-end}}" aria-labelledby="js-navbar-{{id}}">
+		{{items}}
+	</ul>
+</li>
+TPL;
+
+$_tpl['ui_navbar_item_dropdown_item'] = <<<TPL
+<li><a class="dropdown-item {{active}} {{confirm}}" href="{{link}}">{{title}}</a></li>
+TPL;
+
+$_tpl['ui_navbar_item_dropdown_divider'] = <<<TPL
+<li><hr class="dropdown-divider"></li>
+TPL;
+
+$_tpl['ui_button'] = <<<TPL
+    <a href="{{link}}" class="btn btn-{{variant}}">{{text}}</a>
+TPL;
+
+$_tpl['ui_dropdown'] = <<<TPL
+<div class="dropdown">
+  <button class="btn btn-{{variant}} dropdown-toggle" type="button" id="{{js-id}}" data-bs-toggle="dropdown" aria-expanded="false">
+    {{text}}
+  </button>
+  <ul class="dropdown-menu {{aligh_right}}" aria-labelledby="{{js-id}}">
+    {{items}}
+  </ul>
+</div>
+TPL;
+
+$_tpl['ui_dropdown_item'] = <<<TPL
+<li><a class="dropdown-item" href="{{link}}">{{text}}</a></li>
+TPL;
+
+$_tpl['ui_breadcrumbs_main'] = <<<TPL
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {{items}}
+    </ol>
+</nav>
+TPL;
+
+$_tpl['ui_breadcrumbs_item'] = <<<TPL
+    <li class="breadcrumb-item"><a href="{{link}}">{{text}}</a></li>
+TPL;
+
+$_tpl['ui_breadcrumbs_item_active'] = <<<TPL
+    <li class="breadcrumb-item active" aria-current="page">{{text}}</li>
+TPL;
+
+$_tpl['ui_list_main'] = <<<TPL
+<{{tag}} class="{{class}}">{{items}}</{{tag}}>
+TPL;
+
+$_tpl['ui_list_item'] = <<<TPL
+<li class="{{class}}">{{content}}</li>
+TPL;
+
+$_tpl['ui_table_main'] = <<<TPL
+<div class="table-responsive-md">
+    <table class="table align-middle">
+        {{thead}}
+        {{tbody}}
+        {{tfoot}}
+    </table>
+</div>
+<div class="mt-4">
+    {{pagination}}
+</div>
+TPL;
+
+$_tpl['ui_table_thead'] = <<<TPL
+<thead>{{tr}}</thead>
+TPL;
+
+$_tpl['ui_table_thead_tr'] = <<<TPL
+<tr>{{th}}</tr>
+TPL;
+
+$_tpl['ui_table_thead_th'] = <<<TPL
+<th class="{{class}}" colspan="{{colspan}}">{{title}}</th>
+TPL;
+
+$_tpl['ui_table_tbody'] = <<<TPL
+<tbody>{{tr}}</tbody>
+TPL;
+
+$_tpl['ui_table_tbody_tr'] = <<<TPL
+<tr>{{td}}</tr>
+TPL;
+
+$_tpl['ui_table_tbody_td'] = <<<TPL
+<td class="{{class}}">{{data}}</td>
+TPL;
+
+$_tpl['ui_table_tfoot'] = <<<TPL
+<tfoot>
+    {{tfoot_tr}}
+</tfoot>
+TPL;
+
+$_tpl['ui_table_data_link'] = <<<TPL
+<a href="{{link}}" class="{{confirm}}">{{title}}</a>
+TPL;
+
+$_tpl['ui_table_data_button'] = <<<TPL
+<a href="{{link}}" class="btn btn-{{variant}} btn-sm {{confirm}}">{{text}}</a>
+TPL;
+
+$_tpl['ui_table_data_dropdown'] = <<<TPL
+<div class="dropdown">
+    <a class="btn btn-outline-secondary btn-sm dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+        {{title}}
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end">
+        {{items}}
+    </ul>
+</div>
+TPL;
+
+$_tpl['ui_table_data_dropdown_item'] = <<<TPL
+<li><a href="{{link}}" class="dropdown-item {{confirm}}">{{title}}</a></li>
+TPL;
+
+$_tpl['ui_table_data_dropdown_divider'] = <<<TPL
+<li><hr class="dropdown-divider"></li>
+TPL;
+
+$_tpl['ui_table_data_image'] = <<<TPL
+<img src="{{link}}" class="img-thumbnail p-0"/>
+TPL;
+
+$_tpl['ui_pagination_main'] = <<<TPL
+<div class="row">
+    <div class="col-md pt-1">
+        {{rows_count}}
+    </div>
+    <div class="col-md-auto">
+        <nav>
+            <ul class="pagination">
+                {{prev}}
+                {{items}}
+                {{next}}
+            </ul>
+        </nav>
+    </div>
+</div>
+TPL;
+
+$_tpl['ui_pagination_prev'] = <<<TPL
+<li class="page-item">
+    <a class="page-link" href="{{link}}">
+        <span aria-hidden="true">&laquo;</span>
+    </a>
+</li>
+TPL;
+
+$_tpl['ui_pagination_next'] = <<<TPL
+<li class="page-item">
+    <a class="page-link" href="{{link}}">
+        <span aria-hidden="true">&raquo;</span>
+    </a>
+</li>
+TPL;
+
+$_tpl['ui_pagination_item'] = <<<TPL
+<li class="page-item">
+    <a class="page-link" href="{{link}}">{{title}}</a>
+</li>
+TPL;
+
+$_tpl['ui_pagination_item_current'] = <<<TPL
+<li class="page-item active" aria-current="page">
+    <span class="page-link">{{title}}</span>
+</li>
+TPL;
+
+$_tpl['ui_pagination_item_disabled'] = <<<TPL
+<li class="page-item disabled">
+    <a class="page-link" href="{{link}}">{{title}}</a>
+</li>
+TPL;
+
+# Прогрессбар:
+$_tpl['ui_progress_main'] = <<<TPL
+<div class="progress">
+  <div class="progress-bar progress-bar-striped bg-{{variant}}" role="progressbar" style="width: {{percent}}%" aria-valuenow="{{percent}" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+TPL;
+
+# Форма:
+$_tpl['ui_form_main'] = <<<TPL
+<form action="{{url}}" method="{{method}}" enctype="multipart/form-data">
+    {{csrf}}
+    {{fields}}
+</form>
+TPL;
+
+$_tpl['ui_form_csrf'] = <<<TPL
+    {{error_csrf}}
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+TPL;
+
+$_tpl['ui_form_error'] = <<<TPL
+<div class="invalid-feedback">
+    {{error}}
+</div>
+TPL;
+
+$_tpl['ui_form_help'] = <<<TPL
+<div class="small text-muted mt-1">
+    {{text}}
+</div>
+TPL;
+
+$_tpl['ui_form_label_required'] = <<<TPL
+ <sup class="text-danger">*</sup>
+TPL;
+
+$_tpl['ui_form_label_not_required'] = <<<TPL
+ <span class="small text-secondary">({{lang:component_form_message_not_required}})</span>
+TPL;
+
+$_tpl['ui_form_input'] = <<<TPL
+<div class="form-group mb-3">
+    <label class="form-label">{{label}}</label>
+    <input type="text" name="{{name}}" class="form-control {{validate_class}}" value="{{value}}" placeholder="{{placeholder}}" {{disabled}}>
+    {{error}}
+    {{help}}
+</div>
+TPL;
+
+$_tpl['ui_form_hidden'] = <<<TPL
+<input type="hidden" name="{{name}}" value="{{value}}">
+TPL;
+
+$_tpl['ui_form_password'] = <<<TPL
+<div class="form-group mb-3">
+    <label class="form-label">{{label}}</label>
+    <input type="password" name="{{name}}" class="form-control {{validate_class}}" placeholder="{{placeholder}}" {{disabled}}>
+    {{error}}
+    {{help}}
+</div>
+TPL;
+
+$_tpl['ui_form_textarea'] = <<<TPL
+<div class="form-group mb-3">
+    <label class="form-label">{{label}}</label>
+    <textarea name="{{name}}" rows="{{rows}}" class="form-control {{validate_class}}" placeholder="{{placeholder}}" {{disabled}}>{{value}}</textarea>
+    {{error}}
+    {{help}}
+</div>
+TPL;
+
+$_tpl['ui_form_checkbox'] = <<<TPL
+<div class="form-group mb-3">
+    <div class="form-check {{switch}}">
+        <input type="checkbox" name="{{name}}" value="1" class="form-check-input {{validate_class}}" id="{{id}}" {{checked}} {{disabled}}>
+        <label class="form-check-label" for="{{id}}">
+            {{label}}
+        </label>
+        {{error}}
+    </div>
+    {{help}}
+</div>
+TPL;
+
+$_tpl['ui_form_checkbox_group'] = <<<TPL
+<div class="form-group mb-3">
+    <label class="form-label">{{label}}</label>
+    {{checkboxes}}
+    {{help}}
+</div>
+TPL;
+
+$_tpl['ui_form_checkbox_group_item'] = <<<TPL
+<div class="form-check {{switch}}">
+    <input type="checkbox" name="{{name}}" value="{{source_id}}" class="form-check-input {{validate_class}}" id="{{id}}" {{checked}} {{disabled}}>
+    <label class="form-check-label" for="{{id}}">
+        {{source_name}}
+    </label>
+    {{error}}
+</div>
+TPL;
+
+$_tpl['ui_form_radio_group'] = <<<TPL
+<div class="form-group mb-3">
+    <label class="form-label">{{label}}</label>
+    {{radios}}
+    {{error}}
+    {{help}}
+</div>
+TPL;
+
+$_tpl['ui_form_radio_group_item'] = <<<TPL
+<div class="form-check">
+    <input type="radio" name="{{name}}" value="{{source_id}}" class="form-check-input {{validate_class}}" id="{{id}}" {{checked}} {{disabled}}>
+    <label class="form-check-label d-block" for="{{id}}">
+        {{source_name}}
+    </label>
+</div>
+TPL;
+
+$_tpl['ui_form_select'] = <<<TPL
+<div class="form-group mb-3">
+    <label class="form-label">{{label}}</label>
+    <select name="{{name}}" class="form-select {{validate_class}}" {{disabled}}>{{options}}</select>
+    {{error}}
+    {{help}}
+</div>
+TPL;
+
+$_tpl['ui_form_select_option'] = <<<TPL
+<option value="{{id}}" {{selected}}>{{name}}</option>
+TPL;
+
+$_tpl['ui_form_date'] = <<<TPL
+<div class="form-group mb-3">
+    <label class="form-label">{{label}}</label>
+    <input type="text" name="{{name}}" class="form-control js-date {{validate_class}}" value="{{value}}" placeholder="{{placeholder}}" {{disabled}}>
+    {{error}}
+    {{help}}
+</div>
+TPL;
+
+$_tpl['ui_form_file'] = <<<TPL
+<div class="form-group mb-3">
+    <label class="form-label">{{label}}</label>
+    <input type="file" name="{{name}}" class="form-control {{validate_class}}" placeholder="{{placeholder}}" {{disabled}} {{multiple}}>
+    {{error}}
+    {{help}}
+</div>
+TPL;
+
+$_tpl['ui_form_button'] = <<<TPL
+<div class="form-group mb-3">
+    <label class="form-label d-block">&nbsp;</label>
+    <button type="submit" name="{{name}}" value="{{value}}" class="form-control w-auto btn btn-{{variant}}" {{disabled}}>{{text}}</button>
+</div>
+TPL;
+
+# Авторизация:
+$_tpl['auth_main_form_wrap'] = <<<TPL
+<form action="{{url}}" method="{{method}}" enctype="multipart/form-data">
+    {{csrf}}
+    {{fields}}
+    <div class="mt-4">{{sub_action}}</div>
+</form>
+TPL;
+
+$_tpl['auth_login_form_ui_form_password'] = <<<TPL
+<div class="form-group mb-3">
+    <div class="row mb-2">
+        <div class="col">
+            {{label}}
+        </div>
+        <div class="col-auto">
+            <a href="{{link}}" class="small link-dark">{{lang:guest_login_link_forgot}}</a>
+        </div>
+    </div>
+    <input type="password" name="{{name}}" class="form-control {{validate_class}}" placeholder="{{placeholder}}" {{disabled}}>
+    {{error}}
+    {{help}}
+</div>
+TPL;
+
+# user_affiliate
+$_tpl['user_affiliate_form'] = <<<TPL
+<div class="card mb-4">
+    <div class="card-body">
+        {{form}}
+    </div>
+    <div class="card-body border-top">
+        {{description}}
+    </div>
+</div>
+TPL;
+
+# user_catalog
+$_tpl['user_catalog_list_item'] = <<<TPL
+<div class="row py-2">
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-auto">{{channel_photo}}</div>
+            <div class="col">
+                <ol class="list-unstyled">
+                    <li class="h4">{{channel}}</li>
+                    <li>{{channel_comment}}</li>
+                    <li><code>{{member_count}}</code></li>
+                    <li class="mt-lg-4">{{channel_type}} {{channel_category}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        {{basket}}
+    </div>
+</div>
+TPL;
+
+$_tpl['user_catalog_list_item_price'] = <<<TPL
+<div class="card">
+    <div class="card-body">
+        <div class="form-group">
+            <label class="form-label small">{{label}}</label>
+            {{radios}}
+            {{error}}
+            {{help}}
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <button type="submit" class="btn btn-success btn-sm">{{lang:user_catalog_action_ad_to_basket}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+TPL;
+
+$_tpl['user_catalog_list_item_price_item'] = <<<TPL
+<div class="row">
+    <div class="col">{{ad_format_name}}</div>
+    <div class="col-auto"><code>{{price}}</code></div>
+</div>
+TPL;
+
+$_tpl['user_catalog_basket_form_wrap'] = <<<TPL
+<div class="ps-2">
+    <form action="{{url}}" method="{{method}}" enctype="multipart/form-data">
+        {{csrf}}
+        {{fields}}
+    </form>
+</div>
+TPL;
+
+# user_channel
+$_tpl['user_channel_list_item'] = <<<TPL
+<div class="row py-2">
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-auto">{{channel_photo}}</div>
+            <div class="col">
+                <ol class="list-unstyled">
+                    <li class="h4">{{channel}}</li>
+                    <li>{{channel_comment}}</li>
+                    <li><code>{{member_count}}</code></li>
+                    <li class="mt-lg-4">{{channel_status}} {{channel_type}} {{channel_category}}</li>
+                </ol>
+                <div class="row mt-3">
+                    <div class="col-auto">
+                        <a href="{{link_edit}}" class="small text-dark">{{lang:user_channel_action_edit}}</a>
+                    </div>
+                    <div class="col-auto">
+                        <a href="{{link_price}}" class="small text-dark">{{lang:user_channel_action_price}}</a>
+                    </div>
+                    <div class="col">
+                        <a href="{{link_order}}" class="small text-dark">{{lang:user_channel_action_order}}</a>
+                    </div>
+                    <div class="col-auto">
+                        <a href="{{link_delete}}" class="small text-dark js-confirm"><i class="fa-solid fa-trash-can"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        {{price}}
+    </div>
+</div>
+TPL;
+
+$_tpl['user_channel_price_item'] = <<<TPL
+<div class="me-auto">
+    {{ad_format_name}}
+</div>
+<span>{{price}}</span>
+TPL;
+
+# user_cart
+$_tpl['user_cart_form_wrap'] = <<<TPL
+<div class="card">
+    <div class="card-body bg-light text-end">
+        {{total_price}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg"></div>
+    <div class="col-lg-auto">
+        {{pay_form}}
+    </div>
+</div>
+TPL;
+
+# user_project
+$_tpl['user_project_edit_main'] = <<<TPL
+{{breadcrumbs:null}}
+<div class="border-bottom pb-4 mb-4">
+    <div class="row">
+        <div class="col-md">
+            <h2>{{title}}</h2>
+        </div>
+        {{buttons:null}}
+    </div>
+</div>
+{{project_status_comment}}
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                {{form}}
+            </div>
+            <div class="col-lg-6">
+                <div class="h-100 d-flex align-items-end rounded p-4 bg-success">
+                    <div class="card border-0 w-100">
+                        {{preview_image}}
+                        <div class="card-body">
+                            <p>{{preview_text}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h3>{{lang:user_project_edit_channel_list_title}}</h3>
+<div class="card shadow-sm mt-4">
+    <div class="card-body">
+        {{table}}
+    </div>
+</div>
+TPL;
+
+$_tpl['user_project_edit_preview_image'] = <<<TPL
+{{delete}}
+<img src="{{preview_image}}" class="card-img-top" />
+TPL;
+
+$_tpl['user_project_edit_preview_image_delete'] = <<<TPL
+<div class="position-absolute top-0 end-0 p-4">
+    <a href="{{link}}" class="btn btn-danger js-confirm">
+        <i class="fa-solid fa-trash"></i>
+    </a>
+</div>
+TPL;
+
+$_tpl['user_project_edit_project_status'] = <<<TPL
+<div class="card border-primary shadow-sm mb-4">
+    <div class="card-header">
+        {{project_status_name}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg">
+                {{project_status_comment}}
+            </div>
+            <div class="col-lg-auto">
+                <a href="{{link}}" class="btn btn-primary js-confirm">{{lang:user_project_edit_action_send_moderation}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+TPL;
+
+# user_channel_order
+$_tpl['user_channel_order_view_main'] = <<<TPL
+{{breadcrumbs:null}}
+<div class="border-bottom pb-4 mb-4">
+    <div class="row">
+        <div class="col-md">
+            <h2>{{title}}</h2>
+        </div>
+        {{buttons:null}}
+    </div>
+</div>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                {{detail}}
+                {{control}}
+            </div>
+            <div class="col-lg-6">
+                <div class="h-100 d-flex align-items-end rounded p-4 bg-success">
+                    <div class="card border-0 w-100">
+                    {{preview_image}}
+                    <div class="card-body">
+                        <p>{{preview_text}}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+TPL;
+
+$_tpl['user_channel_order_view_preview_image'] = <<<TPL
+<img src="{{preview_image}}" class="card-img-top" />
+TPL;
+
+$_tpl['user_channel_order_view_detail_item'] = <<<TPL
+<div class="me-auto">
+    {{key}}
+</div>
+<span>{{value}}</span>
+TPL;
+
+$_tpl['user_channel_order_view_control'] = <<<TPL
+<div class="p-4 mt-4 border rounded bg-light">
+    <div class="mb-4">
+        {{description}}
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <a href="{{link_approve}}" class="btn btn-success d-block js-confirm">{{lang:user_channel_order_view_action_approve}}</a>
+        </div>
+        <div class="col-lg-6">
+            <a href="{{link_refuse}}" class="btn btn-danger d-block js-confirm">{{lang:user_channel_order_view_action_refuse}}</a>
+        </div>
+    </div>
+</div>
+TPL;
+
+# admin_project_edit
+$_tpl['admin_project_edit_main'] = <<<TPL
+{{breadcrumbs:null}}
+<div class="border-bottom pb-4 mb-4">
+    <div class="row">
+        <div class="col-md">
+            <h2>{{title}}</h2>
+            <div class="mb-2">{{project_status}}</div>
+        </div>
+    </div>
+</div>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                {{form}}
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-light p-4 rounded border h-100">
+                    <div class="small text-secondary mb-2">{{lang:admin_project_edit_label_preview}}</div>
+                    <div class="card">
+                        {{image}}
+                        <div class="card-body">
+                            {{text}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="my-4">
+    <h3>{{lang:admin_project_edit_label_project_channel}}</h3>
+</div>
+<div class="card">
+    <div class="card-body">
+        {{table_project_channel}}
+    </div>
+</div>
+TPL;
+
+$_tpl['admin_project_edit_preview_image'] = <<<TPL
+<img src="{{preview_image}}" class="card-img-top" />
+TPL;
+
+# admin_project_channel_edit
+$_tpl['admin_project_channel_edit_main'] = <<<TPL
+{{breadcrumbs:null}}
+<div class="border-bottom pb-4 mb-4">
+    <div class="row">
+        <div class="col-md">
+            <h2>{{title}}</h2>
+        </div>
+        {{buttons:null}}
+    </div>
+</div>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                {{detail}}
+                <div class="mt-4">
+                    {{form}}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="h-100 d-flex align-items-end rounded p-4 bg-success">
+                    <div class="card border-0 w-100">
+                    {{preview_image}}
+                    <div class="card-body">
+                        <p>{{preview_text}}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+TPL;
+
+$_tpl['admin_project_channel_edit_preview_image'] = <<<TPL
+<img src="{{preview_image}}" class="card-img-top" />
+TPL;
+
+$_tpl['admin_project_channel_edit_detail_item'] = <<<TPL
+<div class="me-auto">
+    {{key}}
+</div>
+<span>{{value}}</span>
+TPL;
+
+$_tpl['admin_project_channel_edit_control'] = <<<TPL
+<div class="p-4 mt-4 border rounded bg-light">
+    <div class="mb-4">
+        {{description}}
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <a href="{{link_approve}}" class="btn btn-success d-block js-confirm">{{lang:user_channel_order_view_action_approve}}</a>
+        </div>
+        <div class="col-lg-6">
+            <a href="{{link_refuse}}" class="btn btn-danger d-block js-confirm">{{lang:user_channel_order_view_action_refuse}}</a>
+        </div>
+    </div>
+</div>
+TPL;
+
+# moderator_channel_edit
+$_tpl['moderator_channel_edit_main'] = <<<TPL
+{{breadcrumbs:null}}
+<div class="border-bottom pb-4 mb-4">
+    <div class="row">
+        <div class="col-md">
+            <h2>{{title}}</h2>
+        </div>
+    </div>
+</div>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                {{form}}
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-light p-4 rounded border">
+                    <div class="row">
+                        <div class="col-lg">
+                            <ol class="list-unstyled">
+                                <li>
+                                    <span class="badge bg-primary">{{created_at}}</span>
+                                </li>
+                                <li class="my-2">
+                                    {{channel_name}}
+                                </li>
+                                <li>
+                                    <code>{{member_count}}</code>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="col-lg-auto">
+                            {{photo}}
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="small mb-1 text-secondary">{{lang:moderator_channel_edit_label_comment}}</div>
+                        <div class="border rounded bg-white p-3">{{comment}}</div>
+                        <div class="small mt-4 mb-1 text-secondary">{{lang:moderator_channel_edit_label_description}}</div>
+                        <div class="border rounded bg-white p-3">{{description}}</div>
+                        <div class="small mt-4 mb-1 text-secondary">{{lang:moderator_channel_edit_label_price}}</div>
+                        {{price}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+TPL;
+
+$_tpl['moderator_channel_edit_price_item'] = <<<TPL
+<div class="me-auto">
+    {{ad_format_name}}
+</div>
+<span>{{price}}</span>
+TPL;
+
+# moderator_project_edit
+$_tpl['moderator_project_edit_main'] = <<<TPL
+{{breadcrumbs:null}}
+<div class="border-bottom pb-4 mb-4">
+    <div class="row">
+        <div class="col-md">
+            <h2>{{title}}</h2>
+            <div class="mb-2">{{project_status}}</div>
+        </div>
+    </div>
+</div>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                {{form}}
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-light p-4 rounded border h-100">
+                    <div class="small text-secondary mb-2">{{lang:moderator_project_edit_label_preview}}</div>
+                    <div class="card">
+                        {{image}}
+                        <div class="card-body">
+                            {{text}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="my-4">
+    <h3>{{lang:moderator_project_edit_label_project_channel}}</h3>
+</div>
+<div class="card">
+    <div class="card-body">
+        {{table_project_channel}}
+    </div>
+</div>
+TPL;
+
+$_tpl['moderator_project_edit_preview_image'] = <<<TPL
+<img src="{{preview_image}}" class="card-img-top" />
+TPL;

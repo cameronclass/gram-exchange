@@ -3,8 +3,6 @@
     padding-bottom: 20px;
 
     @include mobile {
-        position: fixed;
-        top: 0;
         width: 100%;
         z-index: 4;
         background: white;
@@ -15,17 +13,14 @@
     &__block {
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
-
-        @include mobile {
-            align-items: center;
-        }
+        align-items: center;
     }
 
     &__logo {
-        @include tablet{
+        @include tablet {
             max-width: 160px;
         }
+
         @include mobile {
             max-width: 140px;
         }
@@ -57,7 +52,7 @@
         align-items: center;
         justify-content: center;
         list-style: none;
-        margin: 0 0 15px;
+        margin: 0;
         padding: 0;
 
         @include laptop {
@@ -74,7 +69,8 @@
             left: -100%;
             background-color: $blue;
             transition: 200ms;
-            padding-top: 60px;
+            padding: 160px 20px 0;
+
 
             li {
                 display: flex;
@@ -82,12 +78,20 @@
             }
         }
 
-        &_active {
-            left: 0;
+
+
+        .header__login_link {
+            color: $black;
+            margin-left: 10px;
+            margin-right: 10px;
+
+            &:hover {
+                color: $blue;
+            }
         }
 
-
-        &_link {
+        &_link,
+        .nav-item {
             color: $black;
             margin-left: 15px;
             margin-right: 15px;
@@ -95,12 +99,11 @@
 
             &:hover {
                 color: $blue;
-                border-bottom: 1px solid;
             }
 
             @include laptop {
                 color: white;
-                margin-top: 15px;
+                margin: 15px 0 0;
                 display: inline-block;
                 padding: 8px 15px;
                 background-color: lighten($color: $blue, $amount: 15);
@@ -113,6 +116,10 @@
                     border: none;
                     color: white;
                     background-color: lighten($color: $blue, $amount: 5);
+                }
+
+                .nav-link {
+                    color: white;
                 }
             }
 
@@ -128,38 +135,107 @@
                 margin-top: 40px;
             }
         }
+
+        &_active {
+            left: 0;
+
+            .header__login_link,
+            .nav-item {
+                color: white;
+
+                margin-left: 5px;
+                margin-right: 5px;
+
+                &:hover {
+                    color: darken($color: white, $amount: 10);
+                }
+
+                @include laptop {
+                    color: white;
+                    margin-top: 15px;
+                    display: inline-block;
+                    padding: 8px 15px;
+                    background-color: lighten($color: $blue, $amount: 15);
+                    width: 100%;
+                    text-align: center;
+                    border-radius: 5px;
+                    margin: 15px 0 0;
+
+                    &:hover {
+                        border: none;
+                        color: white;
+                        background-color: lighten($color: $blue, $amount: 5);
+                    }
+                }
+            }
+        }
     }
 
     &__login {
-        margin: 0 0 10px;
+        margin: 0;
         background-color: $blue;
-        padding: 5px 15px;
+        padding: 5px;
         border-radius: 5px;
         position: relative;
+        list-style: none;
+        display: flex;
+        align-items: center;
+
+        @include laptop {
+            margin: 0;
+        }
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+
+        span {
+            color: white;
+        }
+
+        .nav-link {
+            color: white;
+        }
 
         @include mobile {
             display: none;
+            position: fixed;
+            left: 20px;
+            top: 60px;
+            z-index: 15;
+            background-color: #004877;
+            padding: 0 15px;
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
         }
 
         &_link {
             color: white;
-
             margin-left: 5px;
             margin-right: 5px;
 
             &:hover {
-                border-bottom: 1px solid;
+                color: white;
             }
-        }
 
-        span {
-            color: white;
+            @include mobile {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            &:first-child::after {
+                content: "/";
+                padding-left: 10px;
+            }
         }
     }
 
     .hamburger.is-active .hamburger-inner,
     .hamburger.is-active .hamburger-inner::before,
-    .hamburger.is-active .hamburger-inner::after{
+    .hamburger.is-active .hamburger-inner::after {
         background-color: white;
     }
+
 }
